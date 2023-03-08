@@ -1,0 +1,211 @@
+@import url(https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&display=swap);
+:root{
+    --real-font:League Spartan;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--real-font);
+}
+body{
+    width: 100%;
+    max-width: 1440px;
+    background-color: hsl(0, 0%, 90%);
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0;
+    font-family: var(--real-font);
+
+}
+/* .radius{
+    width: 20px;
+    background-color: #ffffff;
+} */
+.toggle{
+    width: 60px;
+    height: 26px;
+    background: #D2CDCD;
+    border-radius: 13px;
+    margin-left: 367px;
+    margin-top: -18px;
+    padding: 5px;
+    
+}
+.toggle-radius{
+    width: 16px;
+    height: 16px;
+    background: #D03F2F;
+    border-radius: 50%;
+    margin-left: 17px;
+    /* padding: 5px; */
+}
+.toggle-radius:hover{
+    background-color: hsl(6, 93%, 67%);
+    cursor: pointer;
+}
+.title{
+    /* border: 3px solid red; */
+    display: flex;
+    width: 540px;
+    height: 50px;
+
+    justify-content: space-between;
+    margin-top: 30px;
+    
+    /* margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto; */
+  
+}
+.title h3{
+    color: #36362C;
+    margin-top: 11px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 29px;
+    letter-spacing: -0.533333px;
+    
+
+    /* margin-right: auto; */
+    /* margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto; */
+}
+a{
+    color: #36362C;
+    text-decoration: none;
+    
+}
+.numeri{
+    display: flex;
+    /* justify-content: flex-start; */
+    color: #36362C;
+    /* margin-top: -20px; */
+}
+.numerials p{
+    margin: 0 7px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 13px;
+}
+.controller p{
+    /* float: right; */
+    /* margin-right: 20rem; */
+    margin-left: 20rem;
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 1px;
+}
+.show-area{
+    width: 540px;
+    /* margin: 24px 24px; */
+    /* padding: 10px 10px; */
+  
+
+}
+#show-area{
+    width: 100%;
+    height: 128px;
+    /* background-color: hsl(0, 5%, 81%); */
+    background-color: hsl(0, 0%, 93%);
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 52px;
+    text-align: right;
+    letter-spacing: -0.933333px;
+    color: #36362C;
+    /* margin: 10px 20; */
+    padding: 0 22px;
+    /* border: 3px solid red; */
+}
+button{
+    width: 101px;
+    height: 64px;
+    padding: 15px 0;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0px -4px 0px #B3A497; 
+    margin: 10px 15px;
+    font-weight: 700;
+    font-size: 40px;
+    color: #434A59;
+    font-family: var(--real-font);
+
+   /* padding: 10px 5px; */
+
+}
+
+.btn{
+    display: flex;
+    width: 540px;
+    height: 480px;
+    border-radius: 10px;
+    flex-flow: wrap;
+    background-color: hsl(0, 5%, 81%);
+    padding: 10px 5px;
+    margin: 15px 0;
+
+}
+.numb{
+    /* align-items: center; */
+    padding: 10px 0;
+}
+.numb:hover{
+    background-color: hsl(60, 100%, 100%);
+
+}
+
+.reset, .equal-to{
+    width: 227px;
+    color: #ffffff;
+    font-size: 28px;
+}
+.reset{
+    background-color: hsl(184, 42%, 37%);
+    box-shadow: inset 0px -4px 0px hsl(185, 58%, 25%);
+}
+.delete{
+    background-color: hsl(184, 42%, 37%);
+    box-shadow: inset 0px -4px 0px hsl(185, 58%, 25% );
+    color: #ffffff;
+    font-size: 28px;
+}
+.delete:hover{
+    background-color: hsl(185, 40%, 56%);
+    box-shadow: inset 0px -4px 0px hsl(185, 58%, 25% );
+}
+.reset:hover{
+    background-color: hsl(185, 40%, 56%);
+    box-shadow: inset 0px -4px 0px hsl(185, 58%, 25% );
+    cursor: pointer;
+}
+.equal-to{
+    background-color: hsl(25, 98%, 40%);
+    box-shadow: inset 0px -4px 0px hsl(25, 99%, 27%);
+    margin-left: 22.5px;
+}
+.equal-to:hover{
+    background-color: hsl(25, 100%, 61%);
+    box-shadow: inset 0px -4px 0px hsl(25, 99%, 27%);
+    cursor: pointer;
+
+}
+
+
+/* .attribution { 
+    font-size: 11px; 
+    text-align: center; }
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+} */
