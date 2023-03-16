@@ -14,9 +14,9 @@ body{
     background-color: hsl(221, 14%, 31%);
     height: 100vh;
     display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    /* align-items: center;
+    flex-direction: column; */
     /* margin: 10px 0; */
     font-family: var(--real-font);
 
@@ -33,6 +33,7 @@ body{
     margin-left: 367px;
     margin-top: -20px;
     padding: 5px;
+    
     
 }
 .toggle-radius{
