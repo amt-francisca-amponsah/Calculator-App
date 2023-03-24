@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,56 +8,69 @@
   
   <title>Frontend Mentor | Calculator app</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
 </head>
-<body>
-<main>
-    <div class="container">
-        <div class="title">
-            <div class="toggle">
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-            </div>
-            <div class="controller">
-                <h3>calc</h3>
-                <p>THEME</p>
-            </div>
+<body class="body">
+  <main>
+  <div class="container">
+   <header class="title">
+     <h3>calc</h3>
+    <div class="numerials">
+      <div class="numeri">
+        <div class="controller">
+          <p>THEME</p>
         </div>
-        <div class="show-area">
-        <!-- <form name="calc"> -->
-            <input type="text" name="calc" readonly id="show-area" value="0">
-        <!-- </div> -->
-        <div class="main-body">
-            <div class="btn">
-                <button class="numb">7</button>
-                <button class="numb">8</button>
-                <button class="numb">9</button>
-                <button class="delete">DEL</button>
-                <button class="numb">4</button>
-                <button class="numb">5</button>
-                <button class="numb">6</button>
-                <button class="numb">+</button>
-                <button class="numb">1</button>
-                <button class="numb">2</button>
-                <button class="numb">3</button>
-                <button class="numb">-</button>
-                <button class="numb">.</button>
-                <button class="numb">0</button>
-                <button class="numb">/</button>
-                <button class="numb">x</button>
-                <button class="reset">RESET</button>
-                <button class="equal-to">=</button>
-            <!-- </div>      -->
-            </div>
-        </div>
+        <p id="ThemeOne"> 1 </p>
+        <p id="ThemeTwo">2 </p>
+        <p id="ThemeThree"> 3 </p>
+      </div>
+      <div class="toggle">
+        <div class="toggle-radius-one"></div>
+        <div class="toggle-radius-two"></div>
+        <div class="toggle-radius-three"></digitv>
+        <!-- <div class="toggle-radius-two"></div>
+        <div class="toggle-radius-three"></div> -->
+      </div>
     </div>
+   </header>
+    <div class="show-area" >
+      <input type="text" name="calculator" readonly id="show-area" value="0"  >
+    </div>
+    <div class="main-body">
+      <div class="btn">
+        <button class="numb button">7</button>
+        <button class="numb button">8</button>
+        <button class="numb button">9</button>
+        <button class="delete button">DEL</button>
+        <button class="numb button">4</button>
+        <button class="numb button">5</button>
+        <button class="numb button">6</button>
+        <button class="numb button">+</button>
+        <button class="numb button">1</button>
+        <button class="numb button">2</button>
+        <button class="numb button">3</button>
+        <button class="numb button">-</button>
+        <button class="numb button">.</button>
+        <button class="numb button">0</button>
+        <button class="numb button">/</button>
+        <button class="numb button">x</button>
+        <button class="reset button ">RESET</button>
+        <button class="equal-to button">=</button>
+      </div>
+    </div>
+  </div>
+
   
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Amponsah Francisca Frimpomaa</a>.
   </div> -->
 </main>
-
 <script src="index.js"></script>
 </body>
 </html>

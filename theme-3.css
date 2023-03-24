@@ -164,7 +164,7 @@ button{
     
 }
 .numb:hover{
-    background-color: hsl(268, 46%, 47%);
+    background-color: hsl(268, 54%, 44%);
 }
 
 .reset, .equal-to{
@@ -184,7 +184,7 @@ button{
     font-size: 28px;
 }
 .delete:hover{
-    background-color: hsl(281, 45%, 47%);
+    background-color: hsl(280, 56%, 44%);
     box-shadow: inset 0px -4px 0px hsl(285, 91%, 52% );
 }
 .reset:hover{
