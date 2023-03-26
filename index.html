@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Calculator app</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <!-- <style>
@@ -15,7 +15,7 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style> -->
 </head>
-<body>
+<body class="body">
   <main>
   <div class="container">
    <header class="title">
@@ -25,38 +25,42 @@
         <div class="controller">
           <p>THEME</p>
         </div>
-        <p> <a href="index.html"> 1 </a></p>
-        <p><a href="theme-2.html"> 2 </a></p>
-        <p><a href="theme-3.html"> 3 </a></p>
+        <p id="ThemeOne"> 1 </p>
+        <p id="ThemeTwo">2 </p>
+        <p id="ThemeThree"> 3 </p>
       </div>
       <div class="toggle">
-        <div class="toggle-radius"></div>
+        <div class="toggle-radius-one"></div>
+        <div class="toggle-radius-two"></div>
+        <div class="toggle-radius-three"></digitv>
+        <!-- <div class="toggle-radius-two"></div>
+        <div class="toggle-radius-three"></div> -->
       </div>
     </div>
    </header>
     <div class="show-area" >
-      <input type="text" name="calculator" readonly id="show-area" value="399,981"  >
+      <input type="text" name="calculator" readonly id="show-area" value="0"  >
     </div>
     <div class="main-body">
       <div class="btn">
-        <button class="numb">7</button>
-        <button class="numb">8</button>
-        <button class="numb">9</button>
-        <button class="delete">DEL</button>
-        <button class="numb">4</button>
-        <button class="numb">5</button>
-        <button class="numb">6</button>
-        <button class="numb">+</button>
-        <button class="numb">1</button>
-        <button class="numb">2</button>
-        <button class="numb">3</button>
-        <button class="numb">-</button>
-        <button class="numb">.</button>
-        <button class="numb">0</button>
-        <button class="numb">/</button>
-        <button class="numb">x</button>
-        <button class="reset">RESET</button>
-        <button class="equal-to">=</button>
+        <button class="numb button">7</button>
+        <button class="numb button">8</button>
+        <button class="numb button">9</button>
+        <button class="delete button">DEL</button>
+        <button class="numb button">4</button>
+        <button class="numb button">5</button>
+        <button class="numb button">6</button>
+        <button class="numb button">+</button>
+        <button class="numb button">1</button>
+        <button class="numb button">2</button>
+        <button class="numb button">3</button>
+        <button class="numb button">-</button>
+        <button class="numb button">.</button>
+        <button class="numb button">0</button>
+        <button class="numb button">/</button>
+        <button class="numb button">x</button>
+        <button class="reset button ">RESET</button>
+        <button class="equal-to button">=</button>
       </div>
     </div>
   </div>
@@ -67,82 +71,6 @@
     Coded by <a href="#">Amponsah Francisca Frimpomaa</a>.
   </div> -->
 </main>
-<script src="index.js"></script>
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
-<title>Frontend Mentor | Calculator app</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body class="theme-one-body" >
-<main>
-    <div class="container">
-        <div class="theme">
-            <p>THEME</p>
-        </div>
-        <div class="title">
-            <div class="toggle-all">
-                <div class="toggle-one" >
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                </div>
-                <div class="toggle">
-                    <div class="toggle-radius"></div>
-                    <div class="toggle-radius-two"></div>
-                    <div class="toggle-radius-three"></div>
-                </div>
-            </div>
-            <div class="controller-one">
-                <h3>calc</h3>
-            </div>
-        </div>
-        <div class="show-area">
-        <!-- <form name="calc"> -->
-            <input type="text" name="calc" readonly id="show-area-one" value="0">
-        <!-- </div> -->
-        <div class="main-body">
-            <div class="btn">
-                <button class="numb">7</button>
-                <button class="numb">8</button>
-                <button class="numb">9</button>
-                <button class="delete">DEL</button>
-                <button class="numb">4</button>
-                <button class="numb">5</button>
-                <button class="numb">6</button>
-                <button class="numb">+</button>
-                <button class="numb">1</button>
-                <button class="numb">2</button>
-                <button class="numb">3</button>
-                <button class="numb">-</button>
-                <button class="numb">.</button>
-                <button class="numb">0</button>
-                <button class="numb">/</button>
-                <button class="numb">x</button>
-                <button class="reset">RESET</button>
-                <button class="equal-to">=</button>
-            <!-- </div>      -->
-            </div>
-        </div>
-    </div>
-
-<!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Amponsah Francisca Frimpomaa</a>.
-</div> -->
-</main>
-
 <script src="index.js"></script>
 </body>
 </html>
