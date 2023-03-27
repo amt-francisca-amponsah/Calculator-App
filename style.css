@@ -19,6 +19,10 @@
         overflow-x: hidden;
     
     }
+    .main{
+        margin: auto;
+        overflow-x: hidden;
+    }
     .container{
     width: 540px;
     margin: auto;
