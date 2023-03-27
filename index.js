@@ -21,7 +21,7 @@ console.log(display.offsetWidth)
        display.style.fontSize = '8px';
      }
   }else{
-    if(length > 10){
+    if(length > 8){
       display.style.fontSize = '24px';
     }else if(length > 34 ){
       display.style.fontSize = '19px'
