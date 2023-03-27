@@ -5,18 +5,29 @@ const buttonNumber = document.querySelectorAll(".numb");
 function resizeInput(){
 
   const display = document.getElementById("show-area");
-
+  const displayWidth = display.offsetWidth
+console.log(display.offsetWidth)
   const length = display.value.length
   if(length < 17){
     display.style.fontSize = '56px';
   }
-
- if(length > 17){
-    display.style.fontSize = '28px';
-  }else if(length > 34){
-    display.style.fontSize = '19px'
-  }else if(length > 51){
-    display.style.fontSize = '8px';
+  if(displayWidth >= 540){
+    
+    if(length > 17){
+       display.style.fontSize = '28px';
+     }else if(length > 34 ){
+       display.style.fontSize = '19px'
+     }else if(length > 51 ){
+       display.style.fontSize = '8px';
+     }
+  }else{
+    if(length > 10){
+      display.style.fontSize = '24px';
+    }else if(length > 34 ){
+      display.style.fontSize = '19px'
+    }else if(length > 51 ){
+      display.style.fontSize = '8px';
+    }
   }
 }
 
