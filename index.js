@@ -1,32 +1,29 @@
 document.body.classList.add("body");
 const buttonNumber = document.querySelectorAll(".numb");
 
-
-function resizeInput(){
-
+function resizeInput() {
   const display = document.getElementById("show-area");
-  const displayWidth = display.offsetWidth
-console.log(display.offsetWidth)
-  const length = display.value.length
-  if(length < 17){
-    display.style.fontSize = '56px';
+  const displayWidth = display.offsetWidth;
+  console.log(display.offsetWidth);
+  const length = display.value.length;
+  if (length < 17) {
+    display.style.fontSize = "56px";
   }
-  if(displayWidth >= 540){
-    
-    if(length > 17){
-       display.style.fontSize = '28px';
-     }else if(length > 34 ){
-       display.style.fontSize = '19px'
-     }else if(length > 51 ){
-       display.style.fontSize = '8px';
-     }
-  }else{
-    if(length > 10){
-      display.style.fontSize = '24px';
-    }else if(length > 34 ){
-      display.style.fontSize = '19px'
-    }else if(length > 51 ){
-      display.style.fontSize = '8px';
+  if (displayWidth >= 540) {
+    if (length > 51) {
+      display.style.fontSize = "10px";
+    } else if (length > 34) {
+      display.style.fontSize = "19px";
+    } else if (length > 17) {
+      display.style.fontSize = "28px";
+    }
+  } else {
+    if (length > 51) {
+      display.style.fontSize = "10px";
+    } else if (length > 34) {
+      display.style.fontSize = "19px";
+    } else if (length > 10) {
+      display.style.fontSize = "24px";
     }
   }
 }
@@ -50,7 +47,7 @@ function displayInput(event) {
     // console.log(event.target.textContent == ".");
     if (
       ["x", "/", "+", "-"].includes(event.target.textContent) &&
-      ["*", "/", "+", "-", "."].includes(
+      ["*", "÷", "+", "-", "."].includes(
         display.value[display.value.length - 1]
       )
     ) {
@@ -68,23 +65,30 @@ function displayInput(event) {
       display.value += "0.";
       return;
     }
-    const lastDecimal = display.value.slice(display.value.lastIndexOf('.'))
+    const lastDecimal = display.value.slice(display.value.lastIndexOf("."));
 
-    console.log(lastDecimal)
+    console.log(lastDecimal);
 
-    if (lastDecimal.length >= 4 && 
-      (!lastDecimal.includes('+') && !lastDecimal.includes('-') && !lastDecimal.includes('x') && !lastDecimal.includes('/')  && 
-      !["x", "/", "+", "-"].includes(event.target.textContent))
-      ){
+    if (
+      lastDecimal.length >= 4 &&
+      !lastDecimal.includes("+") &&
+      !lastDecimal.includes("-") &&
+      !lastDecimal.includes("x") &&
+      !lastDecimal.includes("/") &&
+      !["x", "/", "+", "-"].includes(event.target.textContent)
+    ) {
       return;
     }
-
 
     display.value += event.target.textContent;
     display.value = display.value.replace("x", "*");
     display.value = display.value.replaceAll(",", "");
-    display.value = display.value.replace(/\d+/g, (num) => parseInt(num).toLocaleString());
-    resizeInput()
+    display.value = display.value.replaceAll("/", "÷");
+
+    display.value = display.value.replace(/\d+/g, (num) =>
+      parseInt(num.slice(0, 15)).toLocaleString()
+    );
+    resizeInput();
   }
 }
 buttonNumber.forEach((element) =>
@@ -96,7 +100,7 @@ buttonNumber.forEach((element) =>
 function resetInput(event) {
   const display = document.getElementById("show-area");
   display.value = 0;
-  resizeInput()
+  resizeInput();
 }
 
 const resetBtn = document.querySelector(".reset");
@@ -112,7 +116,9 @@ function deleteInput(event) {
     display.value = display.value.slice(0, display.value.length - 1);
     display.value = display.value.replace("x", "*");
     display.value = display.value.replaceAll(",", "");
-    display.value = display.value.replace(/\d+/g, (num) => parseInt(num).toLocaleString());
+    display.value = display.value.replace(/\d+/g, (num) =>
+      parseInt(num).toLocaleString()
+    );
   }
 }
 const deleteBtn = document.querySelector(".delete");
@@ -123,19 +129,20 @@ deleteBtn.addEventListener("click", deleteInput);
 function equalToInput(event) {
   const display = document.getElementById("show-area");
 
-  let displayValue = display.value
+  let displayValue = display.value;
 
-
-  if(["x", "/", "+", "-"].includes(displayValue[displayValue.length -1])){
-  displayValue = displayValue.substring(0,displayValue.length-1)
+  if (["x", "÷", "+", "-"].includes(displayValue[displayValue.length - 1])) {
+    displayValue = displayValue.substring(0, displayValue.length - 1);
   }
 
   display.value = displayValue.replaceAll("x", "*");
 
   displayValue = displayValue.replaceAll(",", "");
 
+  displayValue = displayValue.replaceAll("÷", "/");
 
   display.value = eval(displayValue).toLocaleString();
+  resizeInput();
 }
 
 const equaltoBtn = document.querySelector(".equal-to");
@@ -170,7 +177,7 @@ const applyThemeOne = () => {
 
   const toggleColor = document.querySelector(".toggle");
   toggleColor.style.backgroundColor = "#242D44";
-  
+
   deleteBtnOne.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = "#A2B2E1";
   });
@@ -384,7 +391,6 @@ const applyThemeThree = () => {
     key.addEventListener("mouseout", (event) => {
       event.target.style.backgroundColor = "hsl(268, 47%, 21%)";
     });
-
   });
 
   const themeOneRadius = document.querySelector(".toggle-radius-one");
