@@ -1,6 +1,7 @@
 document.body.classList.add("body");
 const buttonNumber = document.querySelectorAll(".numb");
 
+//for resizing the numbers that can appear on the display
 function resizeInput() {
   const display = document.getElementById("show-area");
   const displayWidth = display.offsetWidth;
@@ -28,6 +29,7 @@ function resizeInput() {
   }
 }
 
+//for the display
 function displayInput(event) {
   // console.log(event.target.textContent);
   const display = document.getElementById("show-area");
