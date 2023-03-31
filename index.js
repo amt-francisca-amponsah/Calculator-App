@@ -36,7 +36,7 @@ function displayInput(event) {
   // console.log(display.value);
 
   if (display.value.length === 1 && display.value == 0) {
-    if (["x", "/", "+", "-"].includes(event.target.textContent)) {
+    if (["x", "/", "+", ].includes(event.target.textContent)) {
       display.value = 0;
       return;
     }
@@ -47,8 +47,14 @@ function displayInput(event) {
     display.value = event.target.textContent;
   } else {
     // console.log(event.target.textContent == ".");
+    if(
+      display.value[display.value.length - 2 ] === "-" && display.value[display.value.length - 1] === "-" 
+      && event.target.textContent === "-"
+    ){
+      return;
+    }
     if (
-      ["x", "/", "+", "-"].includes(event.target.textContent) &&
+      ["x", "/", "+", ].includes(event.target.textContent) &&
       ["*", "÷", "+", "-", "."].includes(
         display.value[display.value.length - 1]
       )
@@ -56,6 +62,7 @@ function displayInput(event) {
       // display.value += '0.';
       return;
     }
+
     if (event.target.textContent == "." && display.value.endsWith(".")) {
       // display.value += '0.';
       return;
@@ -81,6 +88,7 @@ function displayInput(event) {
     ) {
       return;
     }
+  
 
     display.value += event.target.textContent;
     display.value = display.value.replace("x", "*");
@@ -133,6 +141,11 @@ function equalToInput(event) {
 
   let displayValue = display.value;
 
+  displayValue = displayValue.replaceAll("--", "+");
+
+  displayValue = displayValue.replaceAll("++", "+");
+
+
   if (["x", "÷", "+", "-"].includes(displayValue[displayValue.length - 1])) {
     displayValue = displayValue.substring(0, displayValue.length - 1);
   }
@@ -142,6 +155,15 @@ function equalToInput(event) {
   displayValue = displayValue.replaceAll(",", "");
 
   displayValue = displayValue.replaceAll("÷", "/");
+
+  console.log(displayValue)
+  if(displayValue.includes("/0")){
+    display.value = "Can't divide by zero"
+    setTimeout(() =>{
+      display.value = "0"
+    }, 3000)
+    return;
+  }
 
   display.value = eval(displayValue).toLocaleString();
   resizeInput();
