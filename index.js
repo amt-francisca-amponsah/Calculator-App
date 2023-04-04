@@ -36,7 +36,7 @@ function displayInput(event) {
   // console.log(display.value);
 
   if (display.value.length === 1 && display.value == 0) {
-    if (["x", "/", "+", ].includes(event.target.textContent)) {
+    if (["x", "/", "+"].includes(event.target.textContent)) {
       display.value = 0;
       return;
     }
@@ -47,14 +47,15 @@ function displayInput(event) {
     display.value = event.target.textContent;
   } else {
     // console.log(event.target.textContent == ".");
-    if(
-      display.value[display.value.length - 2 ] === "-" && display.value[display.value.length - 1] === "-" 
-      && event.target.textContent === "-"
-    ){
+    if (
+      display.value[display.value.length - 2] === "-" &&
+      display.value[display.value.length - 1] === "-" &&
+      event.target.textContent === "-"
+    ) {
       return;
     }
     if (
-      ["x", "/", "+", ].includes(event.target.textContent) &&
+      ["x", "/", "+"].includes(event.target.textContent) &&
       ["*", "÷", "+", "-", "."].includes(
         display.value[display.value.length - 1]
       )
@@ -88,7 +89,6 @@ function displayInput(event) {
     ) {
       return;
     }
-  
 
     display.value += event.target.textContent;
     display.value = display.value.replace("x", "*");
@@ -145,7 +145,6 @@ function equalToInput(event) {
 
   displayValue = displayValue.replaceAll("++", "+");
 
-
   if (["x", "÷", "+", "-"].includes(displayValue[displayValue.length - 1])) {
     displayValue = displayValue.substring(0, displayValue.length - 1);
   }
@@ -156,12 +155,12 @@ function equalToInput(event) {
 
   displayValue = displayValue.replaceAll("÷", "/");
 
-  console.log(displayValue)
-  if(displayValue.includes("/0")){
-    display.value = "Can't divide by zero"
-    setTimeout(() =>{
-      display.value = "0"
-    }, 3000)
+  console.log(displayValue);
+  if (displayValue.includes("/0")) {
+    display.value = "Can't divide by zero";
+    setTimeout(() => {
+      display.value = "0";
+    }, 3000);
     return;
   }
 
@@ -173,91 +172,71 @@ const equaltoBtn = document.querySelector(".equal-to");
 equaltoBtn.addEventListener("click", equalToInput);
 
 const themeTwoRadius = document.querySelector(".toggle-radius-two");
-themeTwoRadius.style.visibility = "hidden";
+themeTwoRadius.classList.add("hidden");
 
 const themeThreeRadius = document.querySelector(".toggle-radius-three");
-themeThreeRadius.style.visibility = "hidden";
+themeThreeRadius.classList.add("hidden");
 
 const applyThemeOne = () => {
-  const docBody = document.querySelector(".body");
-  docBody.style.backgroundColor = "hsl(221, 26%, 31%)";
+  const body = document.querySelector(".body");
+  body.classList.add("theme-one-body");
+  body.classList.remove("theme-two-body", "theme-three-body");
 
-  const showAreaColor = document.getElementById("show-area");
-  showAreaColor.style.backgroundColor = "hsl(224, 36%, 15%)";
-  showAreaColor.style.color = "#ffffff";
-
-  const clickNumber = document.querySelector(".numeri");
-  clickNumber.style.color = "#ffffff";
-
-  const h3Element = document.querySelector(".title").querySelector("h3");
-  h3Element.style.color = "#ffffff";
+  const showArea = document.getElementById("show-area");
+  showArea.classList.add("theme-one-show-area");
+  showArea.classList.remove("theme-two-show-area", "theme-three-show-area");
 
   const btnBackground = document.querySelector(".btn");
-  btnBackground.style.backgroundColor = "hsl(224, 36%, 15%)";
+  btnBackground.classList.add("theme-one-btn");
+  btnBackground.classList.remove("theme-two-btn", "theme-three-btn");
 
-  const deleteBtnOne = document.querySelector(".delete");
-  deleteBtnOne.style.backgroundColor = "hsl(225, 21%, 49%)";
-  deleteBtnOne.style.boxShadow = "inset 0px -4px 0px hsl(224, 28%, 35%)";
+  const numberBackground = document.querySelectorAll(".numb");
+  numberBackground.forEach((number) => {
+    number.classList.add("theme-one-button");
+    number.classList.remove("theme-two-button", "theme-three-button");
+  });
+
+  const resetButton = document.querySelector(".reset");
+  resetButton.classList.add("theme-one-reset-delete");
+  resetButton.classList.remove(
+    "theme-two-reset-delete",
+    "theme-three-reset-delete"
+  );
+
+  const deleteButton = document.querySelector(".delete");
+  deleteButton.classList.add("theme-one-reset-delete");
+  deleteButton.classList.remove(
+    "theme-two-reset-delete",
+    "theme-three-reset-delete"
+  );
+
+  const equaltoButton = document.querySelector(".equal-to");
+  equaltoButton.classList.add("theme-one-equal-to");
+  equaltoButton.classList.remove("theme-two-equal-to", "theme-three-equal-to");
+
+  const numeriColor = document.querySelector(".numeri");
+  numeriColor.classList.add("theme-one-numeri");
+  numeriColor.classList.remove("theme-two-numeri", "theme-three-numeri");
+
+  const titleh3Color = document.querySelector(".title").querySelector("h3");
+  titleh3Color.classList.add("theme-one-title-h3");
+  titleh3Color.classList.remove("theme-two-title-h3", "theme-three-title-h3");
 
   const toggleColor = document.querySelector(".toggle");
-  toggleColor.style.backgroundColor = "#242D44";
-
-  deleteBtnOne.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "#A2B2E1";
-  });
-  deleteBtnOne.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(225, 21%, 49%)";
-  });
-  // deleteBtnOne.styleSheet.cssText = css;
-
-  const resetBtnOne = document.querySelector(".reset");
-  resetBtnOne.style.backgroundColor = "hsl(225, 21%, 49%)";
-  resetBtnOne.style.boxShadow = "inset 0px -4px 0px hsl(224, 28%, 35%)";
-  resetBtnOne.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "#A2B2E1";
-  });
-  resetBtnOne.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(225, 21%, 49%)";
-  });
-
-  const equalToBtnOne = document.querySelector(".equal-to");
-  equalToBtnOne.style.backgroundColor = "hsl(6, 63%, 50%)";
-  equalToBtnOne.style.color = "#ffffff";
-  equalToBtnOne.style.boxShadow = "inset 0px -4px 0px hsl(6, 70%, 34%)";
-
-  equalToBtnOne.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "#F96B5B";
-  });
-  equalToBtnOne.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(6, 63%, 50%)";
-  });
-
-  const keypad = document.querySelectorAll(".numb");
-  keypad.forEach((key) => {
-    key.style.backgroundColor = "hsl(45, 7%, 89%)";
-    key.style.color = "#434A59";
-    key.style.boxShadow = "inset 0px -4px 0px hsl(	35, 11%, 61%)";
-    // key.classList.add('numb')
-
-    key.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "hsl(60, 100%, 100%)";
-    });
-
-    key.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "hsl(45, 7%, 89%)";
-    });
-  });
-
-  // document.styleSheets[0].insertRule("button:hover {color:red}")
+  toggleColor.classList.add("theme-one-toggle");
+  toggleColor.classList.remove("theme-two-toggle", "theme-three-toggle");
 
   const themeOneRadius = document.querySelector(".toggle-radius-one");
-  themeOneRadius.style.visibility = "visible";
+  themeOneRadius.classList.add("visible");
+  themeOneRadius.classList.remove("hidden");
 
   const themeTwoRadius = document.querySelector(".toggle-radius-two");
-  themeTwoRadius.style.visibility = "hidden";
+  themeTwoRadius.classList.add("hidden");
+  themeTwoRadius.classList.remove("visible");
 
   const themeThreeRadius = document.querySelector(".toggle-radius-three");
-  themeThreeRadius.style.visibility = "hidden";
+  themeThreeRadius.classList.add("hidden");
+  themeThreeRadius.classList.remove("visible");
 };
 const toggleNumberOne = document.getElementById("ThemeOne");
 toggleNumberOne.addEventListener("click", applyThemeOne);
@@ -266,83 +245,67 @@ const toggleRadiusOne = document.querySelector(".toggle-radius-one");
 toggleRadiusOne.addEventListener("click", applyThemeOne);
 
 const applyThemeTwo = () => {
-  const docBody = document.querySelector(".body");
-  docBody.style.backgroundColor = "hsl(0, 0%, 90%)";
+  const body = document.querySelector(".body");
+  body.classList.add("theme-two-body");
+  body.classList.remove("theme-one-body", "theme-three-body");
 
-  const showAreaColor = document.getElementById("show-area");
-  showAreaColor.style.backgroundColor = "hsl(0, 0%, 93%)";
-  showAreaColor.style.color = "#36362C";
-
-  const clickNumber = document.querySelector(".numeri");
-  clickNumber.style.color = "#36362C";
-
-  const h3Element = document.querySelector(".title").querySelector("h3");
-  h3Element.style.color = "#36362C";
+  const showArea = document.getElementById("show-area");
+  showArea.classList.add("theme-two-show-area");
+  showArea.classList.remove("theme-one-show-area", "theme-three-show-area");
 
   const btnBackground = document.querySelector(".btn");
-  btnBackground.style.backgroundColor = "hsl(0, 5%, 81%)";
+  btnBackground.classList.add("theme-two-btn");
+  btnBackground.classList.remove("theme-one-btn", "theme-three-btn");
 
-  const deleteBtnTwo = document.querySelector(".delete");
-  deleteBtnTwo.style.backgroundColor = "hsl(184, 42%, 37%)";
-  deleteBtnTwo.style.boxShadow = "inset 0px -4px 0px hsl(185, 58%, 25% )";
-  deleteBtnTwo.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "hsl(185, 40%, 56%)";
-  });
-  deleteBtnTwo.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(184, 42%, 37%)";
+  const numberBackground = document.querySelectorAll(".numb");
+  numberBackground.forEach((number) => {
+    number.classList.add("theme-two-button");
+    number.classList.remove("theme-one-button", "theme-three-button");
   });
 
-  const resetBtnTwo = document.querySelector(".reset");
-  resetBtnTwo.style.backgroundColor = "hsl(184, 42%, 37%)";
-  resetBtnTwo.style.boxShadow = "inset 0px -4px 0px hsl(185, 58%, 25% )";
-  resetBtnTwo.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "hsl(185, 40%, 56%)";
-  });
-  resetBtnTwo.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(184, 42%, 37%)";
-  });
+  const resetButton = document.querySelector(".reset");
+  resetButton.classList.add("theme-two-reset-delete");
+  resetButton.classList.remove(
+    "theme-one-reset-delete",
+    "theme-three-reset-delete"
+  );
 
-  const equalToBtnTwo = document.querySelector(".equal-to");
-  equalToBtnTwo.style.backgroundColor = "hsl(25, 98%, 40%)";
-  equalToBtnTwo.style.color = "#ffffff";
-  equalToBtnTwo.style.boxShadow = "inset 0px -4px 0px hsl(25, 99%, 27%)";
-  equalToBtnTwo.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "hsl(25, 100%, 61%)";
-  });
-  equalToBtnTwo.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(25, 98%, 40%)";
-  });
+  const deleteButton = document.querySelector(".delete");
+  deleteButton.classList.add("theme-two-reset-delete");
+  deleteButton.classList.remove(
+    "theme-one-reset-delete",
+    "theme-three-reset-delete"
+  );
 
-  const keypad = document.querySelectorAll(".numb");
-  keypad.forEach((key) => {
-    key.style.backgroundColor = "hsl(45, 7%, 89%)";
-    key.style.color = "#36362C";
-    key.style.boxShadow = "inset 0px -4px 0px hsl(	35, 11%, 61%)";
+  const equaltoButton = document.querySelector(".equal-to");
+  equaltoButton.classList.add("theme-two-equal-to");
+  equaltoButton.classList.remove("theme-one-equal-to", "theme-three-equal-to");
 
-    key.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "hsl(60, 100%, 100%)";
-    });
+  const numeriColor = document.querySelector(".numeri");
+  numeriColor.classList.add("theme-two-numeri");
+  numeriColor.classList.remove("theme-one-numeri", "theme-three-numeri");
 
-    key.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "hsl(45, 7%, 89%)";
-    });
+  const titleh3Color = document.querySelector(".title").querySelector("h3");
+  titleh3Color.classList.add("theme-two-title-h3");
+  titleh3Color.classList.remove("theme-one-title-h3", "theme-three-title-h3");
 
-    const toggleColor = document.querySelector(".toggle");
-    toggleColor.style.backgroundColor = "#D2CDCD";
-  });
-
-  // const toggle = document.querySelector('.toggle')
-  // toggle.style.visibility = 'visible'
+  const toggleColor = document.querySelector(".toggle");
+  toggleColor.classList.add("theme-two-toggle");
+  toggleColor.classList.remove("theme-one-toggle", "theme-three-toggle");
 
   const themeOneRadius = document.querySelector(".toggle-radius-one");
-  themeOneRadius.style.visibility = "hidden";
+  themeOneRadius.classList.add("hidden");
+  themeOneRadius.classList.remove("visible");
 
   const themeTwoRadius = document.querySelector(".toggle-radius-two");
-  themeTwoRadius.style.visibility = "visible";
+  themeTwoRadius.classList.add("visible");
+  themeTwoRadius.classList.remove("hidden");
 
   const themeThreeRadius = document.querySelector(".toggle-radius-three");
-  themeThreeRadius.style.visibility = "hidden";
+  themeThreeRadius.classList.add("hidden");
+  themeThreeRadius.classList.remove("visible");
 };
+
 const toggleNumberTwo = document.getElementById("ThemeTwo");
 toggleNumberTwo.addEventListener("click", applyThemeTwo);
 
@@ -350,91 +313,69 @@ const toggleRadiusTwo = document.querySelector(".toggle-radius-two");
 toggleRadiusTwo.addEventListener("click", applyThemeTwo);
 
 const applyThemeThree = () => {
-  const docBody = document.querySelector(".body");
-  docBody.style.backgroundColor = "hsl(268, 75%, 9%)";
+  const body = document.querySelector(".body");
+  body.classList.add("theme-three-body");
+  body.classList.remove("theme-one-body", "theme-two-body");
 
-  const showAreaColor = document.getElementById("show-area");
-  showAreaColor.style.backgroundColor = "hsl(268, 71%, 12%)";
-  showAreaColor.style.color = "#FFE53D";
-
-  const clickNumber = document.querySelector(".numeri");
-  clickNumber.style.color = "#FFE53D";
-
-  const h3Element = document.querySelector(".title").querySelector("h3");
-  h3Element.style.color = "#FFE53D";
+  const showArea = document.getElementById("show-area");
+  showArea.classList.add("theme-three-show-area");
+  showArea.classList.remove("theme-one-show-area", "theme-two-show-area");
 
   const btnBackground = document.querySelector(".btn");
-  btnBackground.style.backgroundColor = "hsl(268, 71%, 12%)";
+  btnBackground.classList.add("theme-three-btn");
+  btnBackground.classList.remove("theme-one-btn", "theme-two-btn");
 
-  const deleteBtnThree = document.querySelector(".delete");
-  // const css = 'table td:hover{ background-color: #00ff00 }';
-  deleteBtnThree.style.backgroundColor = "hsl(	281, 89%, 26%)";
-  deleteBtnThree.style.boxShadow = "inset 0px -4px 0px hsl(285, 91%, 52% )";
-  deleteBtnThree.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "hsl(280, 56%, 44%)";
-  });
-  deleteBtnThree.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(	281, 89%, 26%)";
-  });
-  // deleteBtnThree.styleSheet.cssText = css;
-
-  const resetBtnThree = document.querySelector(".reset");
-  resetBtnThree.style.backgroundColor = "hsl(	281, 89%, 26%)";
-  resetBtnThree.style.boxShadow = "inset 0px -4px 0px hsl(285, 91%, 52% )";
-  resetBtnThree.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "hsl(280, 56%, 44%)";
-  });
-  resetBtnThree.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(	281, 89%, 26%)";
+  const numberBackground = document.querySelectorAll(".numb");
+  numberBackground.forEach((number) => {
+    number.classList.add("theme-three-button");
+    number.classList.remove("theme-one-button", "theme-two-button");
   });
 
-  const equalToBtnThree = document.querySelector(".equal-to");
-  equalToBtnThree.style.backgroundColor = "hsl(176, 100%, 44%)";
-  equalToBtnThree.style.color = "#1A2327";
-  equalToBtnThree.style.boxShadow = "inset 0px -4px 0px hsl(177, 92%, 70%)";
-  equalToBtnThree.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "hsl(176, 68%, 77%)";
-  });
-  equalToBtnThree.addEventListener("mouseout", (event) => {
-    event.target.style.backgroundColor = "hsl(176, 100%, 79%)";
-  });
+  const resetButton = document.querySelector(".reset");
+  resetButton.classList.add("theme-three-reset-delete");
+  resetButton.classList.remove(
+    "theme-one-reset-delete",
+    "theme-two-reset-delete"
+  );
+
+  const deleteButton = document.querySelector(".delete");
+  deleteButton.classList.add("theme-three-reset-delete");
+  deleteButton.classList.remove(
+    "theme-one-reset-delete",
+    "theme-two-reset-delete"
+  );
+
+  const equaltoButton = document.querySelector(".equal-to");
+  equaltoButton.classList.add("theme-three-equal-to");
+  equaltoButton.classList.remove("theme-one-equal-to", "theme-two-equal-to");
+
+  const numeriColor = document.querySelector(".numeri");
+  numeriColor.classList.add("theme-three-numeri");
+  numeriColor.classList.remove("theme-one-numeri", "theme-two-numeri");
+
+  const titleh3Color = document.querySelector(".title").querySelector("h3");
+  titleh3Color.classList.add("theme-three-title-h3");
+  titleh3Color.classList.remove("theme-one-title-h3", "theme-two-title-h3");
 
   const toggleColor = document.querySelector(".toggle");
-  toggleColor.style.backgroundColor = "#1E0936";
-
-  const keypad = document.querySelectorAll(".numb");
-  keypad.forEach((key) => {
-    key.style.backgroundColor = "hsl(268, 47%, 21%)";
-    key.style.color = "#FFE53D";
-    key.style.boxShadow = "inset 0px -4px 0px hsl(290, 70%, 36%)";
-
-    key.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "hsl(268, 54%, 44%)";
-    });
-
-    key.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "hsl(268, 47%, 21%)";
-    });
-  });
+  toggleColor.classList.add("theme-three-toggle");
+  toggleColor.classList.remove("theme-one-toggle", "theme-two-toggle");
 
   const themeOneRadius = document.querySelector(".toggle-radius-one");
-  themeOneRadius.style.visibility = "hidden";
+  themeOneRadius.classList.add("hidden");
+  themeOneRadius.classList.remove("visible");
 
   const themeTwoRadius = document.querySelector(".toggle-radius-two");
-  themeTwoRadius.style.visibility = "hidden";
+  themeTwoRadius.classList.add("hidden");
+  themeTwoRadius.classList.remove("visible");
 
   const themeThreeRadius = document.querySelector(".toggle-radius-three");
-  themeThreeRadius.style.visibility = "visible";
+  themeThreeRadius.classList.add("visible");
+  themeThreeRadius.classList.remove("hidden");
 };
 
-// const applyToggleRadiusThree =() =>{
-
-// }
 const toggleNumberThree = document.getElementById("ThemeThree");
 toggleNumberThree.addEventListener("click", applyThemeThree);
 
 const toggleRadiusThree = document.querySelector(".toggle-radius-three");
 toggleRadiusThree.addEventListener("click", applyThemeThree);
-
-// const toggleRadiusThree = document.querySelector('toggle-radius-three')
-// toggleRadiusThree.addEventListener("click", applyToggleRadiusThree)
