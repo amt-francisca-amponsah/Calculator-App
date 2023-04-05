@@ -1,3 +1,11 @@
+function replaceTimes(operation) {
+  return operation.replaceAll("x", "*");
+}
+
+function replaceComma(operation) {
+  return operation.replaceAll(",", "");
+}
+
 document.body.classList.add("body");
 const buttonNumber = document.querySelectorAll(".numb");
 
@@ -5,7 +13,6 @@ const buttonNumber = document.querySelectorAll(".numb");
 function resizeInput() {
   const display = document.getElementById("show-area");
   const displayWidth = display.offsetWidth;
-  console.log(display.offsetWidth);
   const length = display.value.length;
   if (length < 17) {
     display.style.fontSize = "56px";
@@ -31,22 +38,27 @@ function resizeInput() {
 
 //for the display
 function displayInput(event) {
-  // console.log(event.target.textContent);
   const display = document.getElementById("show-area");
-  // console.log(display.value);
 
   if (display.value.length === 1 && display.value == 0) {
     if (["x", "/", "+"].includes(event.target.textContent)) {
       display.value = 0;
       return;
     }
+
     if (event.target.textContent === ".") {
       display.value = "0.";
       return;
     }
     display.value = event.target.textContent;
   } else {
-    // console.log(event.target.textContent == ".");
+    if (
+      display.value.length === 1 &&
+      display.value == "-" &&
+      event.target.textContent === "-"
+    ) {
+      return;
+    }
     if (
       display.value[display.value.length - 2] === "-" &&
       display.value[display.value.length - 1] === "-" &&
@@ -60,12 +72,10 @@ function displayInput(event) {
         display.value[display.value.length - 1]
       )
     ) {
-      // display.value += '0.';
       return;
     }
 
     if (event.target.textContent == "." && display.value.endsWith(".")) {
-      // display.value += '0.';
       return;
     }
     if (
@@ -76,8 +86,6 @@ function displayInput(event) {
       return;
     }
     const lastDecimal = display.value.slice(display.value.lastIndexOf("."));
-
-    console.log(lastDecimal);
 
     if (
       lastDecimal.length >= 4 &&
@@ -91,8 +99,8 @@ function displayInput(event) {
     }
 
     display.value += event.target.textContent;
-    display.value = display.value.replace("x", "*");
-    display.value = display.value.replaceAll(",", "");
+    display.value = replaceTimes(display.value);
+    display.value = replaceComma(display.value);
     display.value = display.value.replaceAll("/", "÷");
 
     display.value = display.value.replace(/\d+/g, (num) =>
@@ -124,8 +132,8 @@ function deleteInput(event) {
     display.value = 0;
   } else {
     display.value = display.value.slice(0, display.value.length - 1);
-    display.value = display.value.replace("x", "*");
-    display.value = display.value.replaceAll(",", "");
+    display.value = replaceTimes(display.value);
+    display.value = replaceComma(display.value);
     display.value = display.value.replace(/\d+/g, (num) =>
       parseInt(num).toLocaleString()
     );
@@ -149,13 +157,12 @@ function equalToInput(event) {
     displayValue = displayValue.substring(0, displayValue.length - 1);
   }
 
-  display.value = displayValue.replaceAll("x", "*");
+  display.value = replaceTimes(displayValue);
 
-  displayValue = displayValue.replaceAll(",", "");
+  displayValue = replaceComma(displayValue);
 
   displayValue = displayValue.replaceAll("÷", "/");
 
-  console.log(displayValue);
   if (displayValue.includes("/0")) {
     display.value = "Can't divide by zero";
     setTimeout(() => {
